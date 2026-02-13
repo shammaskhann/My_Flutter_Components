@@ -1,9 +1,9 @@
-# retro_spashscreen
-
 # Retro Splash Screen
 
 ## Overview
 The Retro Splash Screen is a customizable splash screen widget for Flutter applications that provides a retro aesthetic with typewriter and drawing animations. Simply copy the code into your project to get started!
+
+![Animated Splash Preview](retro_splash_screen.gif)
 
 ## Features
 - Retro-style splash screen with animations
