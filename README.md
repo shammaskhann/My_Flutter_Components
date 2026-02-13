@@ -8,6 +8,8 @@ A collection of reusable Flutter UI components and widgets that can be easily in
 
 A customizable splash screen widget with retro aesthetic and smooth animations.
 
+![Retro Splash Preview](./retro_spashscreen/retro_splash_screen.gif)
+
 **Features:**
 - Retro-style splash screen with typewriter effect
 - Drawing/animation effects
@@ -25,6 +27,8 @@ Simply copy the `splash_screen.dart` file to your project's `lib/screens/` direc
 
 An animated splash screen component with smooth fade and scale animations.
 
+![Animated Splash Preview](./animated_splashscreen/animated_splash.gif)
+
 **Features:**
 - Smooth fade-in and scale animations
 - Customizable duration and easing
@@ -38,9 +42,13 @@ Copy the `splash_Screen.dart` file to your project and use it as your app's home
 
 ---
 
-### 3. [Theme Mode Button](./ThemeMode_Button)
+### 3. [Theme Mode Button](./ThemeMode_Button/themebutton.gif)
 
 A theme switcher widget that allows users to toggle between light and dark themes.
+
+![Theme Mode Preview](./ThemeMode_Button/)
+
+![Theme]
 
 **Features:**
 - Easy-to-use theme toggle button
