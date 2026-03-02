@@ -42,13 +42,9 @@ Copy the `splash_Screen.dart` file to your project and use it as your app's home
 
 ---
 
-### 3. [Theme Mode Button](./ThemeMode_Button/themebutton.gif)
+### 3. [Theme Mode Button](./ThemeMode_Button)
 
 A theme switcher widget that allows users to toggle between light and dark themes.
-
-![Theme Mode Preview](./ThemeMode_Button/)
-
-![Theme]
 
 **Features:**
 - Easy-to-use theme toggle button
@@ -60,6 +56,83 @@ A theme switcher widget that allows users to toggle between light and dark theme
 Copy the theme controller and button files to your project and integrate with your app's theme provider.
 
 [📖 View Full Documentation](./ThemeMode_Button/README.md)
+
+---
+
+### 4. [Chat Encryption Module](./chat_encryption_module)
+
+A complete, production-ready Flutter package for building end-to-end encrypted chat applications with Firebase and RSA encryption.
+
+**Features:**
+- 🔐 End-to-end RSA 2048-bit encryption
+- 🔥 Firebase Firestore integration for real-time messaging
+- 👥 Single and group chat support
+- 🚫 User blocking functionality
+- 🔍 Message search capability
+- 📱 Read receipts and message tracking
+- 🏗️ Clean architecture with Riverpod state management
+- ✅ Production-tested code from real app
+
+**Quick Setup:**
+
+1. **Copy the module folder** to your project
+2. **Add dependencies** from `pubspec.yaml`:
+   ```yaml
+   cloud_firestore: ^5.4.0
+   firebase_auth: ^5.1.4
+   crypton: ^2.0.0
+   flutter_riverpod: ^2.6.0
+   ```
+
+3. **Initialize Firebase** in your app
+4. **Generate user encryption keys**:
+   ```dart
+   import 'package:chat_encryption_module/chat_encryption_module.dart';
+   
+   // Generate keys for the current user
+   final userCreds = UserCredentials.generate('user_123');
+   // Store securely using flutter_secure_storage
+   ```
+
+5. **Import and use in your app**:
+   ```dart
+   import 'package:chat_encryption_module/chat_encryption_module.dart';
+   
+   // In your provider setup
+   final encryptionService = ref.watch(encryptionServiceProvider);
+   final chatRepository = ref.watch(chatRepositoryProvider);
+   
+   // Create encrypted chat room
+   final room = await chatRepository.createChatRoom(
+     chatRoomId: 'room_123',
+     chatType: ChatType.single,
+     members: ['user_1', 'user_2'],
+     memberPublicKeys: {'user_1': 'public_key_1', 'user_2': 'public_key_2'},
+   );
+   
+   // Send encrypted message
+   final encrypted = encryptionService.encrypt(
+     content: 'Hello!',
+     publicKey: publicKeyFromString,
+   );
+   
+   await chatRepository.sendMessage(
+     chatRoomId: 'room_123',
+     senderId: 'user_1',
+     encryptedContent: encrypted,
+     messageType: MessageType.text,
+   );
+   ```
+
+6. **Use the provided UI screens** or build your own using the components
+
+**Key Components:**
+- `EncryptionService` - RSA encryption/decryption utilities
+- `ChatRepository` - Firebase Firestore operations
+- `ChatRoomController` & `MessageController` - State management with Riverpod
+- `ChatListScreen`, `ChatScreen`, `CreateChatScreen` - Example UI
+
+[📖 View Full Documentation](./chat_encryption_module/MODULE_GUIDE.md)
 
 ---
 
